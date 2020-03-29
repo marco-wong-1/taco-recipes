@@ -15,7 +15,7 @@ import { getRecipes } from './actions/recipe';
 function App() {
   useEffect(() => {
     store.dispatch(getRecipes());
-  }, [getRecipes]);
+  }, []);
   return (
     <Provider store={store}>
       <Router>

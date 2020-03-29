@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 export const Hero = ({ hero: { title, primButton, secButton } }) => {
   const classes = useStyles();
   return (
-    <Container disableGutters maxWidth='false' className={classes.heroContent}>
+    <Container disableGutters className={classes.heroContent}>
       <Typography
         component='h1'
         variant='h2'

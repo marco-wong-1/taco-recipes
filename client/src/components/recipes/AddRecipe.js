@@ -166,7 +166,6 @@ const AddRecipe = ({
                 name='category'
                 label='Category'
                 placeholder='Category'
-                name='category'
                 type='search'
                 value={query.category}
                 onChange={e => queryChange(e)}
