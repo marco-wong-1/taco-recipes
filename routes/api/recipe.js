@@ -13,18 +13,11 @@ router.get('/', async (req, res) => {
   try {
     // if there is a search string
     if (req.query.ingredient || req.query.category) {
-      let filteredIngredients = [];
-      if (req.query.ingredient) {
-        // handles filter by ingredient
-        filteredIngredients = await Ingredient.find({
-          name: { $regex: req.query.ingredient.trim(), $options: 'i' }
-        }).select('_id');
-      } else if (req.query.category) {
-        // handles filter by ingredients category
-        filteredIngredients = await Ingredient.find({
-          category: { $regex: req.query.category.trim(), $options: 'i' }
-        }).select('_id');
-      }
+      const { ingredient = '', category = '' } = req.query;
+      const filteredIngredients = await Ingredient.find({
+        name: { $regex: ingredient.trim(), $options: 'i' },
+        category: { $regex: category.trim(), $options: 'i' }
+      }).select('_id');
       const ingredientsId = filteredIngredients.map(ing => {
         return ing._id;
       });
