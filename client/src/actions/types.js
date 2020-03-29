@@ -1,0 +1,14 @@
+export const SET_SNACKBAR = 'SET_SNACKBAR';
+export const REMOVE_SNACKBAR = 'REMOVE_SNACKBAR';
+export const GET_RECIPES = 'GET_RECIPES';
+export const GET_FOOD = 'GET_FOOD';
+export const GET_FOOD_ERROR = 'GET_FOOD_ERROR';
+export const ADD_RECIPE = 'ADD_RECIPE';
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+export const ADD_FOOD_ERROR = 'ADD_FOOD_ERROR';
+export const LOADING_FOOD = 'LOADING_FOOD';
+export const LOADING_RECIPE = 'LOADING_RECIPE';
+export const RECIPE_DELETED = 'RECIPE_DELETED';
+export const RECIPE_ERROR = 'RECIPE_ERROR';
+export const SELECTED_FOOD = 'SELECTED_FOOD';
+export const SET_HERO = 'SET_HERO';
