@@ -2,10 +2,10 @@
   "name": "tacos-creator",
   "version": "1.0.0",
   "description": "create and view taco recipes",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server",
+    "start": "node index",
+    "server": "nodemon index",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
