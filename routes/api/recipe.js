@@ -71,6 +71,9 @@ router.post(
         .isEmpty(),
       check('calories', 'Calories is required')
         .not()
+        .isEmpty(),
+      check('ingredients', 'Ingredient is required')
+        .not()
         .isEmpty()
     ]
   ],
