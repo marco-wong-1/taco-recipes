@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const path = require('path');
 
 const app = express();
 
@@ -9,18 +10,19 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, 'client/build')));
-// Anything that doesn't match the above, send back index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
-
-app.get('/', (req, res) => res.send('API WORKING'));
-
 // Define Routes
 app.use('/api/ingredient', require('./routes/api/ingredient'));
 app.use('/api/recipe', require('./routes/api/recipe'));
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+// Anything that doesn't match the above, send back index.html
 
 const PORT = process.env.PORT || 5000;
 

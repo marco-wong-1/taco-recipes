@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://marco1:marco1@taco-builder-rqeuo.mongodb.net/tacos?retryWrites=true&w=majority"
+}
