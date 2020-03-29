@@ -45,6 +45,6 @@ While I don't have a lot of experience using material-ui, I tried to follow the 
 
 ## Challenges
 I estimate this project took 16 hours in total. I spent some time in the beginning messing around with the front-end with the edamam api before deciding to create my own back-end. I'd guess I spent 5 hours in the back-end and 10 hours on the front-end. I think the most challenging part was the transfer-list I decided to implement in the add-recipe tab. I had to keep track of the selected and also search for ingredients that aren't selected from the database. Using redux helped with this problem.
-If I had more time I would probably try to create a color pattern instead of using the default material ui theme. In addition to creating my own alert dialog instead of using the default broswer window to confirm deletion.
+If I had more time I would probably try to create a color pattern instead of using the default material ui theme. In addition to creating my own alert dialog instead of using the default broswer window to confirm deletion. I would also like to take a crack at the bonus features, I wanted to focus on having a functioning app before adding more features but given more time I think I would be able to implement everything listed. 
 
 
