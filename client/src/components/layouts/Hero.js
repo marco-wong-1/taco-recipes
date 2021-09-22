@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
   heroContent: {
-    margin: 0,
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(10, 0, 6)
   },
@@ -22,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 export const Hero = ({ hero: { title, primButton, secButton } }) => {
   const classes = useStyles();
   return (
-    <Container disableGutters className={classes.heroContent}>
+    <Container maxWidth='false' className={classes.heroContent}>
       <Typography
         component='h1'
         variant='h2'

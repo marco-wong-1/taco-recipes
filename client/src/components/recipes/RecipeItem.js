@@ -14,10 +14,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
+import DefaultTacoImg from '../../icons/taco.svg'
 import { deleteRecipe } from '../../actions/recipe';
 
-const defaultTacoImg =
-  'https://cdn.clipart.email/ce60ce3bd4d114e8241ba0645d31d83f_taco-cartoon-clipart-cartoon-line-food-transparent-clip-art_900-620.jpeg';
+const defaultTacoImg = DefaultTacoImg
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -46,7 +46,7 @@ const RecipeItem = ({
   deleteRecipe,
   recipe: { _id, name, image, ingredients, desc, labels, calories }
 }) => {
-  image = image === '' ? defaultTacoImg : image;
+  image = image || defaultTacoImg ;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
