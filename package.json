@@ -9,6 +9,9 @@
     "client": "npm start --prefix client",
     "build": "npm install && npm install --prefix client && npm run build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "spack",
+    "static": "cp static/* dist",
+    "prerender": "ts-node prerender.ts",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Marco Wong",
