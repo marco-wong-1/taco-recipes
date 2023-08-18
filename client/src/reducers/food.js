@@ -12,7 +12,7 @@ const initialState = {
   error: {}
 };
 
-export default function(state = initialState, action) {
+export default function food(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case LOADING_FOOD:

@@ -1,15 +1,14 @@
 {
   "name": "tacos-creator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "create and view taco recipes",
   "main": "server.js",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
-    "build": "npm build --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "build": "cd client && yarn && yarn build",
+    "dev": "concurrently \"npm run server\" \"npm run client\""  
   },
   "author": "Marco Wong",
   "license": "ISC",

@@ -5,7 +5,7 @@ const initialState = {
   open: false
 };
 
-export default function(state = initialState, action) {
+export default function snackbar(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case SET_SNACKBAR:
