@@ -1,7 +1,7 @@
 # taco-recipes
 
 ## Demo
-There is a live demo [here](https://taco-recipes-production.up.railway.app/)
+There is a live demo [here](https://taco.app.marco-wong.com/)
 
 ## About
 This repo contains both Front-end and Back-end for the Taco Recipes App.
