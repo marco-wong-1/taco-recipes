@@ -3,6 +3,10 @@
 ## Demo
 There is a live demo [here](https://taco-recipes-production.up.railway.app/)
 
+## About
+This repo contains both Front-end and Back-end for the Taco Recipes App.
+The App allows users to create new ingredients and using those ingredients the user can create taco recipes.
+
 ## Getting started
 Clone down this repository. You will need `node` and `yarn` installed globally on your machine.
 
