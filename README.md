@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 `Build` scripts runs `cd client && yarn && yarn build`, which builds the react app inside the client folder and express serves it in production.
 
 Starting from November 28th 2022, Heroku shut down their free tier.
-This app is now hosted on [Railway](https://railway.app/). There is a MongoDB cluster hosted on Railway that differs from the dev MongoDB cluster that is hosted on MongoDB Atlas.
+This app is now hosted on [Railway](https://railway.app/).
 
 ## Functionalities
 ### Back-end API
