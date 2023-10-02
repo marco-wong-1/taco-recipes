@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 import Hero from './components/layouts/Hero';
 import Snackbar from './components/layouts/Snackbar';
 import Recipes from './components/recipes/Recipes';

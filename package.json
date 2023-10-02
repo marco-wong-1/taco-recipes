@@ -1,6 +1,6 @@
 {
   "name": "tacos-creator",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "create and view taco recipes",
   "main": "server.js",
   "scripts": {

@@ -1,7 +1,9 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 
+const Recipe = require('../../models/Recipe');
 const Ingredient = require('../../models/Ingredient');
 
 // @route   GET api/ingredient
@@ -13,7 +15,7 @@ router.get('/', async (req, res) => {
     const { ingredient = '', category = '' } = req.query;
     const ingredients = await Ingredient.find({
       name: { $regex: ingredient.trim(), $options: 'i' },
-      category: { $regex: category.trim(), $options: 'i' }
+      category: { $regex: category.trim(), $options: 'i' },
     });
     return res.json(ingredients);
   } catch (err) {
@@ -45,13 +47,7 @@ router.get('/:ingredient_id', async (req, res) => {
 // @access  Public
 router.post(
   '/',
-  [
-    [
-      check('name', 'Name is required')
-        .not()
-        .isEmpty()
-    ]
-  ],
+  [[check('name', 'Name is required').not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -65,7 +61,7 @@ router.post(
       name,
       category: Array.isArray(category)
         ? category
-        : category.split(',').map(label => label.trim())
+        : category.split(',').map(label => label.trim()),
     };
     // console.log(ingredientFields);
     try {
@@ -85,13 +81,7 @@ router.post(
 // @access  Public
 router.put(
   '/:ingredient_id',
-  [
-    [
-      check('name', 'Name is required')
-        .not()
-        .isEmpty()
-    ]
-  ],
+  [[check('name', 'Name is required').not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -105,7 +95,7 @@ router.put(
       name,
       category: Array.isArray(category)
         ? category
-        : category.split(',').map(label => ' ' + label.trim())
+        : category.split(',').map(label => ' ' + label.trim()),
     };
     try {
       let ingredient = await Ingredient.findById(req.params.ingredient_id);
@@ -130,6 +120,20 @@ router.put(
 // @access  Private
 router.delete('/:ingredient_id', async (req, res) => {
   try {
+    // Find if ingredient is in an existing recipe
+    let recipe = await Recipe.find({
+      ingredients: {
+        $elemMatch: {
+          ingredient: req.params.ingredient_id,
+        },
+      },
+    });
+
+    if (recipe.length) {
+      return res
+        .status(400)
+        .json({ msg: 'Ingredient is in an existing recipe' });
+    }
     await Ingredient.findOneAndRemove({ _id: req.params.ingredient_id });
     res.json({ msg: 'Ingredient deleted' });
   } catch (err) {

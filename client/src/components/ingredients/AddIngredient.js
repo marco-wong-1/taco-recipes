@@ -1,37 +1,51 @@
 import React, { useEffect, useState } from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import AddBoxIcon from '@material-ui/icons/AddBox';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import { connect } from 'react-redux';
 
 import { setHero } from '../../actions/hero';
 import { addIngredient } from '../../actions/food';
 import { withRouter } from 'react-router-dom';
 
-const useStyles = makeStyles(theme => ({
-  root: {
+const PREFIX = 'AddIngredient';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  paper: `${PREFIX}-paper`,
+  addButton: `${PREFIX}-addButton`
+};
+
+const StyledContainer = styled(Container)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(6)
   },
-  paper: {
+
+  [`& .${classes.paper}`]: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4)
   },
-  addButton: {
+
+  [`& .${classes.addButton}`]: {
     marginBottom: theme.spacing(2),
     textAlign: 'center'
   }
 }));
 
 const AddIngredient = ({ setHero, addIngredient, history }) => {
-  const classes = useStyles();
+
   const [ingredient, setIngredient] = useState({
     name: '',
     category: ''
@@ -57,7 +71,7 @@ const AddIngredient = ({ setHero, addIngredient, history }) => {
   };
 
   return (
-    <Container className={classes.root} maxWidth='sm'>
+    <StyledContainer className={classes.root} maxWidth='sm'>
       <Paper className={classes.paper}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
@@ -98,7 +112,7 @@ const AddIngredient = ({ setHero, addIngredient, history }) => {
           </Grid>
         </Grid>
       </Paper>
-    </Container>
+    </StyledContainer>
   );
 };
 

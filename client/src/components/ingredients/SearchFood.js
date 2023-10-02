@@ -1,29 +1,43 @@
 import React, { useState } from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+import Grid from '@mui/material/Grid';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 
 import { connect } from 'react-redux';
 import { getFood } from '../../actions/food';
 import { selectFood } from '../../actions/selected';
 
-const useStyles = makeStyles(theme => ({
-  root: {
+const PREFIX = 'SearchFood';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  paper: `${PREFIX}-paper`,
+  button: `${PREFIX}-button`
+};
+
+const StyledGrid = styled(Grid)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     margin: 'auto'
   },
-  paper: {
+
+  [`& .${classes.paper}`]: {
     width: 210,
     height: 230,
     overflow: 'auto'
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     margin: theme.spacing(0.5, 0)
   }
 }));
@@ -37,7 +51,7 @@ const intersection = (a, b) => {
 };
 
 const SearchFood = ({ selectFood, food: { food }, selected }) => {
-  const classes = useStyles();
+
   const [checked, setChecked] = useState([]);
   const left = food ? not(food, selected) : [];
   const leftChecked = intersection(checked, left);
@@ -106,10 +120,10 @@ const SearchFood = ({ selectFood, food: { food }, selected }) => {
   );
 
   return (
-    <Grid
+    <StyledGrid
       container
       spacing={2}
-      justify='center'
+      justifyContent='center'
       alignItems='center'
       className={classes.root}
     >
@@ -149,7 +163,7 @@ const SearchFood = ({ selectFood, food: { food }, selected }) => {
         </Grid>
       </Grid>
       <Grid item>{customList(selected)}</Grid>
-    </Grid>
+    </StyledGrid>
   );
 };
 

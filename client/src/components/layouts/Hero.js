@@ -1,27 +1,34 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 import { connect } from 'react-redux';
 
-const useStyles = makeStyles(theme => ({
-  heroContent: {
+const PREFIX = 'Hero';
+
+const classes = {
+  heroContent: `${PREFIX}-heroContent`,
+  heroButtons: `${PREFIX}-heroButtons`,
+};
+
+const StyledContainer = styled(Container)(({ theme }) => ({
+  [`&.${classes.heroContent}`]: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(10, 0, 6)
+    padding: theme.spacing(10, 0, 6),
   },
-  heroButtons: {
-    marginTop: theme.spacing(4)
-  }
+
+  [`& .${classes.heroButtons}`]: {
+    marginTop: theme.spacing(4),
+  },
 }));
 
 export const Hero = ({ hero: { title, primButton, secButton } }) => {
-  const classes = useStyles();
   return (
-    <Container maxWidth='false' className={classes.heroContent}>
+    <StyledContainer maxWidth='false' className={classes.heroContent}>
       <Typography
         component='h1'
         variant='h2'
@@ -32,7 +39,7 @@ export const Hero = ({ hero: { title, primButton, secButton } }) => {
         {title}
       </Typography>
       <div className={classes.heroButtons}>
-        <Grid container spacing={2} justify='center'>
+        <Grid container spacing={2} justifyContent='center' >
           <Grid item>
             {primButton && (
               <Button
@@ -59,16 +66,16 @@ export const Hero = ({ hero: { title, primButton, secButton } }) => {
           </Grid>
         </Grid>
       </div>
-    </Container>
+    </StyledContainer>
   );
 };
 
 Hero.protoTypes = {
-  hero: PropTypes.object
+  hero: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-  hero: state.hero
+  hero: state.hero,
 });
 
 export default connect(mapStateToProps)(Hero);
