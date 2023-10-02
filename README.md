@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 `Build` scripts runs `cd client && yarn && yarn build`, which builds the react app inside the client folder and express serves it in production.
 
 Starting from November 28th 2022, Heroku shut down their free tier.
-This app is now hosted on [Railway](https://railway.app/).
+This app is now hosted on [Vercel](https://vercel.com/).
 
 ## Functionalities
 ### Back-end API
@@ -34,12 +34,12 @@ This app is now hosted on [Railway](https://railway.app/).
 | /ingredient?ingredient=chicken&category=poultry  | Error           | Show ingredients name and category matching the params | Error | Error |
 
 example: 
-* get all recipes: `https://taco-recipes.herokuapp.com/api/recipe` <br />
-* get recipe by id: `https://taco-recipes.herokuapp.com/api/recipe/5e80035ccd64060017a33f4c` <br />
-* get recipes with ingredient name containing "chicken" and under category "poultry": `https://taco-recipes.herokuapp.com/api/recipe?ingredient=chicken&category=poultry` <br />
-* get all ingredients: `https://taco-recipes.herokuapp.com/api/ingredient` <br />
-* get ingredient by id: `https://taco-recipes.herokuapp.com/api/ingredient/5e800315cd64060017a33f49` <br />
-* get ingredients with name containing "chicken" and under category "poultry": `https://taco-recipes.herokuapp.com/api/ingredient?ingredient=chicken&category=poultry` <br />
+* get all recipes: `https://taco.app.marco-wong.com/api/recipe` <br />
+* get recipe by id: `https://taco.app.marco-wong.com/api/recipe/5e80035ccd64060017a33f4c` <br />
+* get recipes with ingredient name containing "chicken" and under category "poultry": `https://taco.app.marco-wong.com/api/recipe?ingredient=chicken&category=poultry` <br />
+* get all ingredients: `https://taco.app.marco-wong.com/api/ingredient` <br />
+* get ingredient by id: `https://taco.app.marco-wong.com/api/ingredient/5e800315cd64060017a33f49` <br />
+* get ingredients with name containing "chicken" and under category "poultry": `https://taco.app.marco-wong.com/api/ingredient?ingredient=chicken&category=poultry` <br />
 
 ### Front-end
 The home page display every taco recipes from the database. User could click on individual recipe and have the option of deleting that recipe.
