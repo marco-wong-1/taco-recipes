@@ -1,5 +1,6 @@
 {
-  "functions": { "./server.js": {} },
+  "functions": { "./server.js": { "memory": 1024 } },
+  "buildCommand": "yarn --cwd client && yarn --cwd clien build",
   "routes": [
     {
       "src": "/(.*)",
