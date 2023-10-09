@@ -1,5 +1,4 @@
 {
-  "buildCommand": "yarn --cwd client && yarn --cwd clien build",
   "rewrites": [
     {
       "source": "/(.*)",
