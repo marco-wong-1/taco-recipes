@@ -1,10 +1,9 @@
 {
-  "functions": { "./server.js": { "memory": 1024 } },
   "buildCommand": "yarn --cwd client && yarn --cwd clien build",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "server.js"
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ]
 }
